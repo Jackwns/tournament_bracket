@@ -1,0 +1,311 @@
+:root {
+    --primary-color: #202125;
+    --secondary-color: #f4f4f4;
+    --accent-color: #008cba;
+    --font-family: 'Inter', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(120deg, #fff 0%, #f9f9f9 100%);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    padding-top: 270px; /* increased from 180px to 250px */
+}
+/* New header and button styles */
+.header {
+    /* Change layout to column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Updated padding: remove top padding, keep bottom padding */
+    padding: 0 40px 20px 40px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #006f9a 100%);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.header-top {
+    /* New top row: logo and right buttons aligned */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.header h1 {
+    /* Updated logo style */
+    font-size: 1.5rem;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+.header-bottom {
+    /* New bottom row: for textarea and randomize button */
+    margin-top: 10px;
+    display: flex;
+    gap: 0; /* Changed from 10px to 0 */
+    justify-content: space-between; /* New: distribute space */
+    align-items: center;            /* New: vertically center */
+}
+.header .input-group {
+    display: flex;
+    width: 100%;
+    gap: 0; /* Changed from 10px to 0 */
+}
+.header .input-group textarea {
+    flex: 1;
+    /* Remove right rounded corners for continuity */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.header .input-group button {
+    flex: 0 0 150px; /* New: fixed width for the button */
+    /* Remove left rounded corners for continuity */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.right-buttons {
+    /* Existing styling from right-buttons remains */
+    display: flex;
+    gap: 0; /* Removed side margins between buttons */
+    align-items: center;
+}
+.right-buttons .btn {
+    /* Increase vertical padding for a taller look */
+    padding: 26px 16px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0;
+}
+.right-buttons .btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #fff;
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+.header textarea {
+    width: 70%;
+    height: 60px;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    resize: none;
+}
+h1, h2 {
+    text-align: center;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+.bracket {
+    display: flex;
+    flex-direction: row; /* ensure two columns side by side */
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: transparent;
+}
+.column {
+    flex: 1;
+    max-width: 45%; /* each column takes up roughly half the space */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.vertical {
+    margin: 10px 0;
+}
+.round {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    min-width: 160px;
+    transition: transform 0.3s ease;
+}
+.round:hover {
+    transform: translateY(-4px);
+}
+.round h2 {
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.match {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+.match:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+.match input[type="text"] {
+    width: 90%;
+    margin: 5px 0;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+}
+.match input[type="text"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+.match .player {
+    display: block;
+    margin: 8px 0;
+    min-height: 22px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.match button {
+    margin-top: 8px;
+    margin-right: 8px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+.match button:hover:not(:disabled) {
+    background-color: #006f9a;
+}
+.match button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.winner {
+    background-color: rgba(0, 139, 69, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+.header.dark-mode {
+    background: linear-gradient(135deg, #333 0%, #555 100%);
+}
+.round.dark-mode {
+    background: #2c2c2c;
+    color: #e0e0e0;
+}
+.round.dark-mode h2 {
+    color: #fff;
+}
+.match.dark-mode {
+    background: #3a3a3a;
+    border: 1px solid #555;
+}
+.match input[type="text"].dark-mode {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #666;
+}
+.match input[type="text"].dark-mode:focus {
+    border-color: var(--accent-color);
+}
+.btn.dark-mode {
+    background-color: transparent;
+    border: none;
+    color: #e0e0e0;
+    border-radius: 0;
+}
+.btn.dark-mode:hover:not(:disabled) {
+    background-color: rgba(224, 224, 224, 0.1);
+}
+@media (max-width: 768px) {
+    body {
+        padding-top: 150px; /* Adjust padding for smaller screens */
+    }
+    .header {
+        padding: 5px 10px; /* Reduced padding to bring title and buttons close to top */
+    }
+    .right-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .left-section {
+        align-items: center;
+    }
+    .header h1 {
+        font-size: 1.5rem; /* Smaller font size for header */
+    }
+    .control-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 5px; /* Reduce gap between buttons */
+    }
+    .bracket {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 20px; /* Reduce gap between columns */
+    }
+    .column {
+        max-width: 100%; /* Full width for each column */
+    }
+    .round {
+        min-width: 100%; /* Full width for each round */
+    }
+    .btn .text {
+        display: none;
+    }
+    .right-buttons .btn {
+        flex: 1;
+        padding: 26px 6px; /* removed side padding */
+    }
+    .header .input-group button {
+        flex: 0 0 100px; /* Reduced width for the button in mobile view */
+    }
+    #darkModeBtn .text {
+        display: none;
+    }
+}
